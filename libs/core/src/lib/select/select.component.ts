@@ -409,7 +409,11 @@ export class SelectComponent
 
     /** @hidden */
     ngOnInit(): void {
-        this.ariaLabel = this.ariaLabel || this.placeholder;
+        if (this.placeholder) {
+            this.ariaLabel = this.ariaLabel || this.placeholder;
+        } else {
+            this.ariaLabel = 'Select an option';
+        }
 
         this._initializeCommonBehavior();
     }
